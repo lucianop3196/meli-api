@@ -6,7 +6,7 @@ import { ItemsService } from './items.service';
 export class ItemsController {
   constructor(private itemsService: ItemsService) {}
   @Get('')
-  async login(@Query('q') q: SearchQueryDTO, @Request() req: Request) {
-    return await this.itemsService.searchItems(req, q);
+  async login(@Query() query: SearchQueryDTO, @Request() req: Request) {
+    return await this.itemsService.searchItems(req, query.q);
   }
 }
